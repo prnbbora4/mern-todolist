@@ -1,15 +1,13 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
 
 
 const DisplayNotes = () => {
     const history = useHistory();
 
-    const [display, setDisplay] = useState([{
-        title:"", description:""
-    }])
+    const [display, setDisplay] = useState([])
 
-    const showdata = async() => {
+    const showdata = async () => {
         try {
             const res = await fetch('/viewNotes', {
                 method: "GET",
@@ -24,35 +22,37 @@ const DisplayNotes = () => {
             setDisplay(data);
             // console.log(data.title);
 
-            if(!res.status === 200){
+            if (!res.status === 200) {
                 const error = new Error(res.error);
                 throw error;
             }
 
         } catch (error) {
             console.log(error);
-            history.push('/');  
+            history.push('/');
         }
 
-    } 
+    }
     useEffect(() => {
-       showdata();
+        showdata();
     }, []);
 
     return (
         <>
             <center>
-                <div className="container">
-                    <div className="card">
-                        <h5 className="card-header">All todos</h5>
-                        <div className="card-body">
-
-                            <h5 className="card-title">{ display.title }</h5>
-                            <p className="card-text">{ display.description }</p>
-
+                {display.map((message) => (
+                    <>
+                    <div className="container my-3">
+                        <div className="card">
+                            <h5 className="card-header">All todos</h5>
+                                <div className="card-body">
+                                    <h5 className="card-title">{message.title}</h5>
+                                    <p className="card-text">{message.description}</p>
+                                </div>
                         </div>
                     </div>
-                </div>
+                    </>
+                ))}
             </center>
         </>
     )

@@ -31,10 +31,10 @@ router.post('/addNotes', async (req, res) => {
 router.get('/viewNotes', async(req, res) => {
     try {
         const notes= await Notes.find({})
-        req.notes = notes;
+        // req.notes = notes;
         // console.log(req.notes);
 
-        res.status(200).send(req.notes);
+        res.status(200).send(notes);
     } catch (error) {
         res.status(400).send(error);
     }
