@@ -14,7 +14,7 @@ router.post('/addNotes', async (req, res) => {
     const {title, description} = req.body;
 
    // console.log(name)
-    if( !title || !description ){
+    if(!description ){
         return res.status(422).json({error: "fill all the fields"});
     }
 

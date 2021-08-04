@@ -16,15 +16,15 @@ app.use(require('./router/auth'));
 const PORT = process.env.PORT || 5000;
 
 // production
-// if(process.env.NODE_ENV === 'production'){
-//     app.use(express.static('./client/build'));
-//     const path = require("path");
-//     app.get("*", (req, res) => {
-//         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-//         console.log(__dirname);
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('./client/build'));
+    const path = require("path");
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+        // console.log(__dirname);
 
-//     })
-// }
+    })
+}
 
 app.listen(PORT, () => {
     console.log(`App is listening at http://localhost:${PORT}`);
