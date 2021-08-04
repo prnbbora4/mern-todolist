@@ -14,7 +14,7 @@ router.post('/addNotes', async (req, res) => {
     const {title, description} = req.body;
 
    // console.log(name)
-    if(!title || !description ){
+    if( !title || !description ){
         return res.status(422).json({error: "fill all the fields"});
     }
 
@@ -30,7 +30,7 @@ router.post('/addNotes', async (req, res) => {
 // view notes
 router.get('/viewNotes', async(req, res) => {
     try {
-        const notes= await Notes.find({})
+        const notes= await Notes.find({}).sort({"date": 1})
         // req.notes = notes;
         // console.log(req.notes);
 

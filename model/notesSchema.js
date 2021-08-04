@@ -3,12 +3,16 @@ const mongooose = require('mongoose');
 const notesSchema = new mongooose.Schema({
     title: {
         type: String,
-        required:true
+        default: "Anonymous"
     },
     description: {
         type: String,
         required:true
-    }
+    },
+    date:{
+        type: Date,
+        default: Date.now,
+    },
 })
 
 const Notes = mongooose.model('Note', notesSchema);

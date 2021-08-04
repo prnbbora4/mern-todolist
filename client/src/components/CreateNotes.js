@@ -32,14 +32,14 @@ const CreateNotes = () => {
 
         const rcvdata = await res.json();
 
-        if(rcvdata.status === 422 || !rcvdata){
+        if(res.status === 422 || !rcvdata){
             window.alert("Message not sent");
             console.log("Message not sent");
         }else{
             window.alert("Message sent");
             console.log("Message sent");    
             
-            history.push("/viewNotes");
+            history.push("/show");
         }
 
     }
@@ -49,15 +49,15 @@ const CreateNotes = () => {
             <div className="container">
                 <div class="mb-3">
                     {/* <label for="formGroupExampleInput" class="form-label">Example label</label> */}
-                    <input type="text" class="form-control" id="formGroupExampleInput" onChange={handleInputs} value={data.title} name="title" placeholder="Title" />
+                    <input type="text" class="form-control" id="formGroupExampleInput" onChange={handleInputs} value={data.title} name="title" placeholder="Name" />
                 </div>
                 <div class="mb-3">
                     {/* <label for="formGroupExampleInput2" class="form-label">Another label</label> */}
-                    <input type="text" class="form-control" id="formGroupExampleInput2" onChange={handleInputs} value={data.description} name="description" placeholder="Description" />
+                    <input type="text" class="form-control" id="formGroupExampleInput2" onChange={handleInputs} value={data.description} name="description" placeholder="Message" />
                 </div>
                 <center>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary text-center" onClick={InsertData}>Sign in</button>
+                    <button type="submit" class="btn btn-primary text-center" onClick={InsertData}>Send</button>
                 </div>
                 </center>
             </div>
