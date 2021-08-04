@@ -4,9 +4,9 @@ const router = express.Router();
 require('../db/connection')
 const Notes = require('../model/notesSchema')
 
-router.get('/', (req, res) => {
-    res.send(`Hello world from the server router js`);
-});
+// router.get('/', (req, res) => {
+//     res.send(`Hello world from the server router js`);
+// });
 
 // add notes
 router.post('/addNotes', async (req, res) => {
