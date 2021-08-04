@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <>
         <center>
-            <img src={coverpic} className="mt-0" />
+            <img src={coverpic} className="mt-0" width="100%"/>
             <p>Let's Chat</p>
         </center>
         </>
