@@ -44,7 +44,7 @@ const DisplayNotes = () => {
                     <>
                     <div className="container my-3">
                         <div className="card">
-                            <h5 className="card-header">All todos</h5>
+                            <h5 className="card-header">New Message !!</h5>
                                 <div className="card-body">
                                     <h5 className="card-title">{message.title}</h5>
                                     <p className="card-text">{message.description}</p>
